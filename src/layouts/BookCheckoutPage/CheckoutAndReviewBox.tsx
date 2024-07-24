@@ -37,8 +37,8 @@ export const CheckoutAndReviewBox: React.FC<{
             </p>
           </div>
         </div>
-        <Link to="/#" className="btn btn-success btn-lg">
-          Sign in
+        <Link to="#" className="btn btn-success btn-lg">
+          Check out
         </Link>
         <hr />
         <p className="mt-3">
