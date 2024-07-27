@@ -9,6 +9,7 @@ import { useOktaAuth } from "@okta/okta-react";
 import { access } from "fs";
 import { wait } from "@testing-library/user-event/dist/utils";
 import { error } from "console";
+import ReviewRequestModel from "../../Models/ReviewRequestModel";
 
 export const BookCheckoutPage = () => {
   const { authState } = useOktaAuth();
@@ -228,6 +229,30 @@ export const BookCheckoutPage = () => {
     setIsCheckedOut(true);
   }
 
+  async function submitReview(starInput: number, reviewDescription: string) {
+    let bookId: number = 0;
+    if (book?.id) {
+      bookId = book.id;
+    }
+
+    const reviewRequestModel = new ReviewRequestModel(starInput, bookId, reviewDescription);
+    const url = `http://localhost:8080/api/reviews/secure`;
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(reviewRequestModel)
+    }
+    const returnResponse = await fetch(url, requestOptions);
+    if (!returnResponse.ok) {
+      throw new Error("Something went wrong!");
+    }
+    setIsReviewLeft(true);
+  }
+
+  
   return (
     <div>
       <div className="container d-none d-lg-block">
@@ -260,10 +285,11 @@ export const BookCheckoutPage = () => {
             isCheckedOut={isCheckedOut}
             checkoutBook={checkOutBook}
             isReviewLeft={isReviewLeft}
+            submitReview={submitReview}
           />
         </div>
         <hr />
-        <LatestReviews reviews={reviews} book={book?.id} mobile={false} />
+        <LatestReviews reviews={reviews} bookId={book?.id} mobile={false} />
       </div>
       <div className="container d-lg-none mt-5">
         <div className="d-flex justify contenet-center align-items-center">
@@ -294,9 +320,10 @@ export const BookCheckoutPage = () => {
           isCheckedOut={isCheckedOut}
           checkoutBook={checkOutBook}
           isReviewLeft={isReviewLeft}
+          submitReview={submitReview}
         />
         <hr />
-        <LatestReviews reviews={reviews} book={book?.id} mobile={true} />
+        <LatestReviews reviews={reviews} bookId={book?.id} mobile={true} />
       </div>
     </div>
   );

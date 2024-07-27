@@ -5,7 +5,7 @@ import { Review } from "../utils/Review";
 
 export const LatestReviews: React.FC<{
   reviews: ReviewModel[];
-  book: number | undefined;
+  bookId: number | undefined;
   mobile: boolean;
 }> = (props) => {
   return (
@@ -23,7 +23,7 @@ export const LatestReviews: React.FC<{
               <Link
                 type="button"
                 className="btn main-color btn-md text-white"
-                to="#"
+                to={`/reviewList/${props.bookId}`}
               >
                 Reach all reviews.
               </Link>
