@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import BookModel from "../../../Models/BookModel";
 
 export const SearchBook: React.FC<{ book: BookModel }> = (props) => {
+  // Log the image URL to see what's being used
+  console.log('Book Image URL:', props.book.img);
   return (
     <div className="card mt-3 shadow p-3 mb-3 bg-body rounded">
       <div className="row g-0">

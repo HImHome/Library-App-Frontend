@@ -6,9 +6,6 @@ import ReviewModel from "../../Models/ReviewModel";
 import { LatestReviews } from "./LatestReviews";
 import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
 import { useOktaAuth } from "@okta/okta-react";
-import { access } from "fs";
-import { wait } from "@testing-library/user-event/dist/utils";
-import { error } from "console";
 import ReviewRequestModel from "../../Models/ReviewRequestModel";
 
 export const BookCheckoutPage = () => {
@@ -94,7 +91,7 @@ export const BookCheckoutPage = () => {
           userEmail: responseData[key].userEmail,
           date: responseData[key].date,
           rating: responseData[key].rating,
-          book_id: responseData[key].bookIid,
+          book_id: responseData[key].bookId,
           reviewDescription: responseData[key].reviewDescription,
         });
         weightedStarReviews = weightedStarReviews + responseData[key].rating;
@@ -150,7 +147,7 @@ export const BookCheckoutPage = () => {
       if (authState && authState.isAuthenticated) {
         const url = `http://localhost:8080/api/books/secure/currentloans/count`;
         const requestOptions = {
-          method: "Get",
+          method: "GET",
           headers: {
             Authorization: `Bearer ${authState.accessToken?.accessToken}`,
             "Content-Type": "application/json",
@@ -158,7 +155,7 @@ export const BookCheckoutPage = () => {
         };
         const currentLoansCountResponse = await fetch(url, requestOptions);
         if (!currentLoansCountResponse.ok) {
-          throw new Error("something went wrong!");
+          throw new Error("Something went wrong!");
         }
         const currentLoansCountResponseJson =
           await currentLoansCountResponse.json();
@@ -263,7 +260,7 @@ export const BookCheckoutPage = () => {
             ) : (
               <img
                 src={require("./../../Images/BooksImages/book-luv2code-1000.png")}
-                width="256"
+                width="226"
                 height="349"
                 alt="Book"
               />
@@ -281,7 +278,7 @@ export const BookCheckoutPage = () => {
             book={book}
             mobile={false}
             currentLoansCount={currentLoansCount}
-            isAuthanticated={authState?.isAuthenticated}
+            isAuthenticated={authState?.isAuthenticated}
             isCheckedOut={isCheckedOut}
             checkoutBook={checkOutBook}
             isReviewLeft={isReviewLeft}
@@ -294,11 +291,11 @@ export const BookCheckoutPage = () => {
       <div className="container d-lg-none mt-5">
         <div className="d-flex justify contenet-center align-items-center">
           {book?.img ? (
-            <img src={book?.img} width="256" height="349" alt="Book" />
+            <img src={book?.img} width="226" height="349" alt="Book" />
           ) : (
             <img
               src={require("./../../Images/BooksImages/book-luv2code-1000.png")}
-              width="256"
+              width="226"
               height="349"
               alt="Book"
             />
@@ -316,7 +313,7 @@ export const BookCheckoutPage = () => {
           book={book}
           mobile={true}
           currentLoansCount={currentLoansCount}
-          isAuthanticated={authState?.isAuthenticated}
+          isAuthenticated={authState?.isAuthenticated}
           isCheckedOut={isCheckedOut}
           checkoutBook={checkOutBook}
           isReviewLeft={isReviewLeft}
