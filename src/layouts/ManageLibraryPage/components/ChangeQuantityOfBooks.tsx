@@ -17,7 +17,7 @@ export const ChangeQuantityOfBooks = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const baseUrl: string = `http://localhost:8080/api/books?page=${
+      const baseUrl: string = `${process.env.REACT_APP_API}/books?page=${
         currentPage - 1
       }&size=${booksPerPage}`;
 
@@ -69,7 +69,6 @@ export const ChangeQuantityOfBooks = () => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   const deleteBook = () => setBookDelete(!bookDelete);
-  
 
   if (isLoading) {
     return <SpinnerLoading />;
@@ -94,7 +93,11 @@ export const ChangeQuantityOfBooks = () => {
             {indexOfFirstBook + 1} to {lastItem} of {totalAmountOfBooks} items:
           </p>
           {books.map((book) => (
-            <ChangeQuantityOfBook book={book} key={book.id} deleteBook={deleteBook}/>
+            <ChangeQuantityOfBook
+              book={book}
+              key={book.id}
+              deleteBook={deleteBook}
+            />
           ))}
         </>
       ) : (

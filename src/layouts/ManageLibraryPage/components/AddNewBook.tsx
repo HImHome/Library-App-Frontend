@@ -23,50 +23,63 @@ export const AddNewBook = () => {
 
   async function base64ConversionForImages(e: any) {
     if (e.target.files[0]) {
-        getBase64(e.target.files[0]);
+      getBase64(e.target.files[0]);
     }
   }
 
   function getBase64(file: any) {
     let reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = function() {
-        setSelectedImage(reader.result);
+    reader.onload = function () {
+      setSelectedImage(reader.result);
     };
-    reader.onerror = function(error) {
-        console.log("Error",error)
-    }
+    reader.onerror = function (error) {
+      console.log("Error", error);
+    };
   }
 
   async function submitNewBook() {
-    const url = `http://localhost:8080/api/admin/secure/add/book`;
-    if (authState?.isAuthenticated && title !== "" && author !== "" && category !== "Category" && description !== "" && copies >=0) {
-        const book: AddBookRequest = new AddBookRequest(title, author, description, copies, category)
-        book.img = selectedImage;
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(book)
-        };
+    const url = `${process.env.REACT_APP_API}/admin/secure/add/book`;
+    if (
+      authState?.isAuthenticated &&
+      title !== "" &&
+      author !== "" &&
+      category !== "Category" &&
+      description !== "" &&
+      copies >= 0
+    ) {
+      const book: AddBookRequest = new AddBookRequest(
+        title,
+        author,
+        description,
+        copies,
+        category
+      );
+      book.img = selectedImage;
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(book),
+      };
 
-        const submitNewBookResponse = await fetch(url, requestOptions);
-        if (!submitNewBookResponse.ok) {
-            throw new Error("Something went wrong");
-        }
-        setTitle("");
-        setAuthor("");
-        setDescription("");
-        setCopies(0);
-        setCategory("Category");
-        setSelectedImage(null);
-        setDisplayWarning(false);
-        setDisplaySuccess(true);
+      const submitNewBookResponse = await fetch(url, requestOptions);
+      if (!submitNewBookResponse.ok) {
+        throw new Error("Something went wrong");
+      }
+      setTitle("");
+      setAuthor("");
+      setDescription("");
+      setCopies(0);
+      setCategory("Category");
+      setSelectedImage(null);
+      setDisplayWarning(false);
+      setDisplaySuccess(true);
     } else {
-        setDisplayWarning(true);
-        setDisplaySuccess(false);
+      setDisplayWarning(true);
+      setDisplaySuccess(false);
     }
   }
 
@@ -181,9 +194,13 @@ export const AddNewBook = () => {
                 value={copies}
               />
             </div>
-            <input type="file" onChange={e => base64ConversionForImages(e)}/>
+            <input type="file" onChange={(e) => base64ConversionForImages(e)} />
             <div>
-              <button type="button" className="btn btn-primary mt-3" onClick={submitNewBook}>
+              <button
+                type="button"
+                className="btn btn-primary mt-3"
+                onClick={submitNewBook}
+              >
                 Add Book
               </button>
             </div>

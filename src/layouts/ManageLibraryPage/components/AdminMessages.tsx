@@ -27,7 +27,9 @@ export const AdminMessages = () => {
   useEffect(() => {
     const fetchUserMessages = async () => {
       if (authState && authState.isAuthenticated) {
-        const url = `http://localhost:8080/api/messages/search/findByClosed/?closed=false&page=${
+        const url = `${
+          process.env.REACT_APP_API
+        }/messages/search/findByClosed/?closed=false&page=${
           currentPage - 1
         }&size=${messagesPerPage}`;
         const requestOptions = {
@@ -70,16 +72,22 @@ export const AdminMessages = () => {
   }
 
   async function submitResponseToQuestion(id: number, response: string) {
-    const url = `http://localhost:8080/api/messages/secure/admin/message`;
-    if (authState && authState?.isAuthenticated && id !== null && response !=="") {
-      const messageAdminRequestModel: AdminMessageRequest =  new AdminMessageRequest(id, response);
+    const url = `${process.env.REACT_APP_API}/messages/secure/admin/message`;
+    if (
+      authState &&
+      authState?.isAuthenticated &&
+      id !== null &&
+      response !== ""
+    ) {
+      const messageAdminRequestModel: AdminMessageRequest =
+        new AdminMessageRequest(id, response);
       const requestOptions = {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
-          "Content-Type" : "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(messageAdminRequestModel)
+        body: JSON.stringify(messageAdminRequestModel),
       };
       const messageAdminRequestModelResponse = await fetch(url, requestOptions);
       if (!messageAdminRequestModelResponse.ok) {
@@ -97,7 +105,11 @@ export const AdminMessages = () => {
         <>
           <h5>Pending Q/A: </h5>
           {messages.map((message) => (
-            <AdminMessage message={message} key={message.id} submitResponseToQuestion={submitResponseToQuestion}/>
+            <AdminMessage
+              message={message}
+              key={message.id}
+              submitResponseToQuestion={submitResponseToQuestion}
+            />
           ))}
         </>
       ) : (
