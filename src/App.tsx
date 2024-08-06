@@ -14,6 +14,7 @@ import { ShelfPage } from "./layouts/ShelfPage/ShelfPage";
 import { MessagesPage } from "./layouts/MessagesPage/MessagesPage";
 import { ManageLibraryPage } from "./layouts/ManageLibraryPage/ManageLibraryPage";
 import { oktaConfig } from "./lib/OktaConfig"; 
+import { PaymentPage } from "./layouts/PaymentPage/PaymentPage";
 
 
 
@@ -65,6 +66,7 @@ export const App = () => {
             </SecureRoute>
             <SecureRoute path="/messages"><MessagesPage/></SecureRoute>
             <SecureRoute path="/admin"><ManageLibraryPage/></SecureRoute>
+            <SecureRoute path="/fees"><PaymentPage/></SecureRoute>
           </Switch>
         </div>
         <Footer />
