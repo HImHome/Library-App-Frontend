@@ -1,5 +1,5 @@
 {
-  "homepage": "http://HImHome.github.io/Library-App-Frontend",
+  "homepage": "https://himhome.github.io/Library-App-Frontend/",
   "name": "react-library",
   "version": "0.1.0",
   "private": true,
@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "gh-pages": "^6.1.1"
   }
 }
