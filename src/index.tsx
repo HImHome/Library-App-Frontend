@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter basename="/home">
+  <BrowserRouter basename="/Library-App-Frontend">
     <Elements stripe={stripePromise}>
       <App />
     </Elements>
