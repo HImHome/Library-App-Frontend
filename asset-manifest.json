@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Library-App-Frontend/static/css/main.8a601428.css",
-    "main.js": "/Library-App-Frontend/static/js/main.e1bb4c62.js",
+    "main.js": "/Library-App-Frontend/static/js/main.c3d49fbb.js",
     "static/media/image-4.jpg": "/Library-App-Frontend/static/media/image-4.3e2078d97fb938c45a1f.jpg",
     "static/media/image-1.jpg": "/Library-App-Frontend/static/media/image-1.86d0184018dc31bf83dc.jpg",
     "static/media/image-3.jpg": "/Library-App-Frontend/static/media/image-3.8ac4c6640b4f274c92b5.jpg",
@@ -33,10 +33,10 @@
     "static/media/user-icon.svg": "/Library-App-Frontend/static/media/user-icon.6c8f8491ebb11a78bf68.svg",
     "index.html": "/Library-App-Frontend/index.html",
     "main.8a601428.css.map": "/Library-App-Frontend/static/css/main.8a601428.css.map",
-    "main.e1bb4c62.js.map": "/Library-App-Frontend/static/js/main.e1bb4c62.js.map"
+    "main.c3d49fbb.js.map": "/Library-App-Frontend/static/js/main.c3d49fbb.js.map"
   },
   "entrypoints": [
     "static/css/main.8a601428.css",
-    "static/js/main.e1bb4c62.js"
+    "static/js/main.c3d49fbb.js"
   ]
 }
