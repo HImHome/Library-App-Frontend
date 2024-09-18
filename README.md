@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# React Library App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The React Library App is a full-stack application developed using **React** and **TypeScript** on the front end, with a **Spring Boot** back-end service and MySQl /PostgreSQL in developement and production respectively. The app provides a responsive and user-friendly interface for interacting with a library system, enabling users to view, search, manage, and loan books. It also includes advanced features such as book reviews, user authentication, payment processing, and admin functionalities. The app is styled using **Bootstrap** to ensure a responsive and modern design.
 
-## Available Scripts
+## Key Features
 
-In the project directory, you can run:
+- **Book Management**: 
+  - Users can browse, search, and view books in the library.
+  - Search functionality includes filtering by category or keyword.
+  
+- **Loan and Return Books**: 
+  - Users can borrow and return books seamlessly.
+  
+- **Review System**: 
+  - Users can leave reviews and ratings for each book.
+  - View the full review history for any book.
 
-### `npm start`
+- **User Loan and Review History**: 
+  - Users can check their loan history and view their reviews from their profile page.
+  
+- **Authentication and Authorization**: 
+  - Includes a secure authentication system powered by **Okta**.
+  - Supports both regular and admin user roles.
+  
+- **Admin Features**: 
+  - Admins can add new books, modify book details (such as quantities), and manage book availability.
+  - Admins can also respond to user questions submitted through the platform.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **User Support**: 
+  - Users can ask questions directly within the app, which admins can respond to.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Payment Integration**: 
+  - Integrated with **Stripe** for secure payment processing of book-related fees (e.g., late fees).
 
-### `npm test`
+## Front-End Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**: Component-based UI development for dynamic and responsive user experiences.
+- **TypeScript**: Ensures type safety and improves code maintainability.
+- **Bootstrap**: Provides a responsive design for a seamless experience across different devices.
+- **Okta Authentication**: Manages user authentication and role-based access control.
+- **Stripe**: Secure, integrated payment system for handling transactions.
 
-### `npm run build`
+## Back-End Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The **Spring Boot** back-end handles:
+- Book data and inventory management
+- Loan and return processing
+- Authentication and authorization via Okta
+- Payment processing using Stripe
+- User questions and admin responses
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A detailed README for the back-end service, including API specifications, database structure, and security configurations, will be provided in the back-end project repository.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A superset of JavaScript that adds static types.
+- **Bootstrap**: A framework for developing responsive and mobile-first websites.
+- **CSS**: For custom styling and layout.
+- **Fetch API**: For making HTTP requests to the back-end.
+- **Netlify**: For hosting and deploying the front-end application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to Run the Project Locally
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To set up and run the React Library App on your local machine, follow these steps: 
 
-## Learn More
+1. Clone the Repository: ```git clone https://github.com/crentzos/Library-App-Frontend.git` and `cd react-library-app`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install Dependencies: Ensure you have Node.js installed. Then, run `npm install` to install the project’s dependencies.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Start the Development Server: Run `npm start` to start the development server. The application will be available at http://localhost:3000.
+
+## Deployment
+
+The front-end application is deployed on Netlify. You can view the live application at [React Library App](https://my-react-library-app.netlify.app).
+
+## Additional Information
+
+The front-end is connected to a Spring Boot back-end service, which is deployed on Render. Ensure that the back-end service is up and running to fetch data correctly. If you prefer, you can also run the server locally by following the instructions in the README file available at [Library App Backend](https://github.com/crentzos/Library-App-Backend.git). When running locally, the back-end service will be accessible at http://localhost:8080. 
