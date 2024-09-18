@@ -1,6 +1,6 @@
 # React Library App
 
-The React Library App is a full-stack application developed using **React** and **TypeScript** on the front end, with a **Spring Boot** back-end service and MySQl /PostgreSQL in developement and production respectively. The app provides a responsive and user-friendly interface for interacting with a library system, enabling users to view, search, manage, and loan books. It also includes advanced features such as book reviews, user authentication, payment processing, and admin functionalities. The app is styled using **Bootstrap** to ensure a responsive and modern design.
+The React Library App is a full-stack application developed using **React** and **TypeScript** on the front end, with a **Spring Boot** back-end service and MySQl/PostgreSQL in developement and production respectively. The app provides a responsive and user-friendly interface for interacting with a library system, enabling users to view, search, manage, and loan books. It also includes advanced features such as book reviews, user authentication, payment processing, and admin functionalities. The app is styled using **Bootstrap** to ensure a responsive and modern design.
 
 ## Key Features
 
