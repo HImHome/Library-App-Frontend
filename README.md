@@ -72,10 +72,23 @@ To set up and run the React Library App on your local machine, follow these step
 
 3. Start the Development Server: Run `npm start` to start the development server. The application will be available at http://localhost:3000.
 
+## Login Credentials
+
+For testing purposes, you can use the following credentials:
+
+- **User Login**
+  - Username: `oktauser@email.com`
+  - Password: `okta1234`
+
+- **Admin Login**
+  - Username: `adminuser@email.com`
+  - Password: `1920rockjazz`
+ 
+
 ## Deployment
 
 The front-end application is deployed on Netlify. You can view the live application at [React Library App](https://my-react-library-app.netlify.app).
 
 ## Additional Information
 
-The front-end is connected to a Spring Boot back-end service, which is deployed on Render. Ensure that the back-end service is up and running to fetch data correctly. If you prefer, you can also run the server locally by following the instructions in the README file available at [Library App Backend](https://github.com/crentzos/Library-App-Backend.git). When running locally, the back-end service will be accessible at http://localhost:8080. 
+The front-end is connected to a Spring Boot back-end service, which is deployed on Render. Ensure that the back-end service is up and running to fetch data correctly. If you prefer, you can also run the server locally by following the instructions in the README file available at [Library App Backend](https://github.com/crentzos/Library-App-Backend.git). When running locally, the back-end service will be accessible at http://localhost:8080/api. 
