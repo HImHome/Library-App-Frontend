@@ -66,7 +66,7 @@ A detailed README for the back-end service, including API specifications, databa
 
 To set up and run the React Library App on your local machine, follow these steps: 
 
-1. Clone the Repository: ```git clone https://github.com/crentzos/Library-App-Frontend.git` and `cd react-library-app`.
+1. Clone the Repository: git clone https://github.com/crentzos/Library-App-Frontend.git` and `cd react-library-app`.
 
 2. Install Dependencies: Ensure you have Node.js installed. Then, run `npm install` to install the project’s dependencies.
 
